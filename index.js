@@ -12,11 +12,11 @@ const TYPED_MESSAGE_SCHEMA = {
           type: 'object',
           properties: {
             name: { type: 'string' },
-            type: { type: 'string', enum: getSolidityTypes() }
+            type: { type: 'string', enum: getSolidityTypes() },
           },
-          required: ['name', 'type']
-        }
-      }
+          required: ['name', 'type'],
+        },
+      },
     },
     primaryType: {type: 'string'},
     domain: {type: 'object'},
