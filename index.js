@@ -11,8 +11,8 @@ const TYPED_MESSAGE_SCHEMA = {
         items: {
           type: 'object',
           properties: {
-            name: { type: 'string' },
-            type: { type: 'string', enum: getSolidityTypes() },
+            name: {type: 'string'},
+            type: {type: 'string', enum: getSolidityTypes()},
           },
           required: ['name', 'type'],
         },
