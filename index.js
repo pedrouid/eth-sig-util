@@ -12,7 +12,7 @@ const TYPED_MESSAGE_SCHEMA = {
           type: 'object',
           properties: {
             name: {type: 'string'},
-            type: {type: 'string'},
+            type: {type: 'string', enum: getSolidityTypes()},
           },
           required: ['name', 'type'],
         },
@@ -285,4 +285,22 @@ function padWithZeroes (number, length) {
     myString = '0' + myString
   }
   return myString
+}
+
+function getSolidityTypes() {
+  const types = ['bool', 'address', 'int', 'uint', 'string', 'byte']
+  const ints = Array.from(new Array(32)).map(
+    (e, index) => `int${(index + 1) * 8}`
+  )
+  const uints = Array.from(new Array(32)).map(
+    (e, index) => `uint${(index + 1) * 8}`
+  )
+  const bytes = Array.from(new Array(32)).map(
+    (e, index) => `bytes${index + 1}`
+  )
+
+  return types
+    .concat(ints)
+    .concat(uints)
+    .concat(bytes)
 }
